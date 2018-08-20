@@ -12,14 +12,15 @@ class ProcessFile implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $data;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -29,6 +30,6 @@ class ProcessFile implements ShouldQueue
      */
     public function handle()
     {
-        //
+        Storage::disk('local')->put('files/'.$this->data['filename'], 'teste');
     }
 }

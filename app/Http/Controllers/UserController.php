@@ -37,10 +37,10 @@ class UserController extends Controller
         $data = $request->except('_token');
 
         for($i = 1; $i <= $data['amount']; $i++){
-            //$data['filename'] = "file{$i}.txt";
-            ProcessFile::dispatch();
+            $data['filename'] = "file{$i}.txt";
+            ProcessFile::dispatch($data);
         }
-        Storage::disk('local')->put('files/file.txt', 'teste');
+
         return redirect()->back();
     }
 }
