@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
 //        Queue::failing(function (JobFailed $event){
 //            Mail::to('adri@gmail.com')->send(new EmailNotify());
 //        });
+        Schema::defaultStringLength(191);
     }
 
     /**

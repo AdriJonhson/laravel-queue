@@ -7,6 +7,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Storage;
 
 class ProcessFile implements ShouldQueue
 {
@@ -30,6 +31,9 @@ class ProcessFile implements ShouldQueue
      */
     public function handle()
     {
-        Storage::disk('local')->put('files/'.$this->data['filename'], 'teste');
+        for($i = 1; $i <= $this->data['amount']; $i++){
+            $this->data['filename'] = "file{$i}.txt";
+            Storage::disk('local')->put('files/'.$this->data['filename'], 'teste');
+        }
     }
 }
