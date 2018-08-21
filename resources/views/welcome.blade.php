@@ -36,6 +36,9 @@
             <br>
 
             <button>Enviar</button>
+
+            <a href="{{ route('write') }}">Gerar Arquivos</a>
+            <a href="{{ route('user.create') }}">Cadastrar Usuário</a>
         </form>
     </body>
 </html>

@@ -27,6 +27,8 @@
             </div>
 
             <button class="btn btn-primary">Gerar Arquivos</button>
+
+            <a href="{{ url('/') }}">Enviar E-Mail</a>
         </form>
     </div>
 

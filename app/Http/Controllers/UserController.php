@@ -20,10 +20,9 @@ class UserController extends Controller
         User::create([
             'name'      => $data['name'],
             'email'     => $data['email'],
-            'password'  => $data['password'],
-            'picture'   => 'teste.jpg'
+            'password'  => $data['password']
         ]);
-        $request->file('picture')->store('pictures');
+
         return redirect()->back()->with('success', 'Usuário Cadastrado com sucesso');
     }
 
@@ -39,7 +38,6 @@ class UserController extends Controller
 
         ProcessFile::dispatch($data);
         
-
         return redirect()->back();
     }
 }

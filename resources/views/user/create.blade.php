@@ -14,7 +14,7 @@
 
         <h1>Cadastrar</h1>
 
-        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('user.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label>Nome</label>
@@ -29,11 +29,6 @@
             <div class="form-group">
                 <label>Senha</label>
                 <input type="password" name="password" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label>Foto</label>
-                <input type="file" name="picture" class="form-control">
             </div>
 
             <button class="btn btn-primary">Salvar</button>

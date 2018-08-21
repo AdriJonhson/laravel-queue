@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Observers\UserObserver;
+use App\User;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
 //            Mail::to('adri@gmail.com')->send(new EmailNotify());
 //        });
         Schema::defaultStringLength(191);
+        User::observe(UserObserver::class);
     }
 
     /**
